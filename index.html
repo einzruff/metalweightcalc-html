@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Metal Weight Calculator</title>
+<!--based off of bostoncenterless.com calculator -->
+<script src="metalcalc.js"></script>
+</head>
+<body>
+<div>
+	<div>
+		<div>
+			<h3>Metal Weight Calculator</h3>
+			<p>Choose the alloy type, shape, and number of pieces and enter the dimensions to calculate the total weight.</p>
+				<div>
+					<div class="row">
+						<div>Alloy:</div>
+					</div>
+					<div class="row">
+						<div>
+							<select name="product" id="product">
+							 <option value="Steel">Steel (default)
+							 <option value="Aluminum 1100">Aluminum 1100
+							 <option value="Aluminum 2011">Aluminum 2011
+								<option value="Aluminum 2014">Aluminum 2014
+								<option value="Aluminum 2017">Aluminum 2017
+								<option value="Aluminum 2024">Aluminum 2024
+								<option value="Aluminum 3003">Aluminum 3003
+								<option value="Aluminum 5005">Aluminum 5005
+								<option value="Aluminum 5052">Aluminum 5052
+								<option value="Aluminum 5056">Aluminum 5056
+								<option value="Aluminum 5083">Aluminum 5083
+								<option value="Aluminum 5086">Aluminum 5086
+								<option value="Aluminum 6061">Aluminum 6061
+								<option value="Aluminum 6063">Aluminum 6063
+								<option value="Aluminum 7050">Aluminum 7050
+								<option value="Aluminum 7075">Aluminum 7075
+								<option value="Aluminum 7178">Aluminum 7178
+								<option value="Stainless 300 Series">Stainless 300 Series
+								<option value="Stainless 400 Series">Stainless 400 Series
+								<option value="Nickel 200">Nickel 200
+								<option value="Nickel 400">Nickel 400
+								<option value="Nickel R-405">Nickel R-405
+								<option value="Nickel K-500">Nickel K-500
+								<option value="Nickel 600">Nickel 600
+								<option value="Nickel 625">Nickel 625
+								<option value="Nickel 800H">Nickel 800H
+								<option value="Nickel 800AT">Nickel 800AT
+								<option value="Nickel 825">Nickel 825
+								<option value="Nickel 330">Nickel 330
+								<option value="Nickel 20">Nickel 20
+								<option value="Nickel C-276">Nickel C-276
+								<option value="Nickel 2545MD">Nickel 2545MD
+								<option value="Magnesium">Magnesium
+								<option value="Beryllium">Beryllium
+								<option value="Titanium">Titanium
+								<option value="Zirconium">Zirconium
+								<option value="Cast Iron">Cast Iron
+								<option value="Zinc">Zinc
+								<option value="Brass">Brass
+								<option value="Columbium">Columbium
+								<option value="Copper">Copper
+								<option value="Molybdenum">Molybdenum
+								<option value="Silver">Silver
+								<option value="Lead">Lead
+								<option value="Tantalum">Tantalum
+								<option value="Tungsten">Tungsten
+								<option value="Gold">Gold
+							</select>
+						</div>
+					</div><br />
+					<div class="row">
+						<div>Shape:</div>
+					</div>
+					<div class="row">
+								<div>
+									<select onchange="ChangeLabel();ClearFields();" name="form" id="ddlShape">
+										<option value="Round">Round
+										<option value="Square">Square
+										<option value="Hexagonal">Hexagonal
+										<option value="Octagonal">Octagonal
+										<option value="Sheet">Sheet
+										<option value="Plate">Plate
+										<option value="Flat">Flat
+										<option value="Tubular">Tubular
+										<option value="Circular">Circular
+										<option value="Ring">Ring
+									</select>
+								</div>
+					</div><br />
+					<div class="row">
+							<div>Number of Pieces:</div>
+					</div>
+					<div class="row">
+							<div><input type="text" size="10" name="param4" id="param4"></div>
+					</div><br />
+					<div class="row">
+							<div><p><strong>Enter Size Information:</strong></p></div>
+					</div>
+						<div class="row" style="margin-bottom:20px;">
+							<div>
+											<input type="text" onblur="ChangeLabel();" onfocus="document.getElementById('param1').focus(); " size="15" name="lbl1" id="lbl1"> <input type="text" size="10" name="param1" id="param1"> <select name="units1" id="units1">
+												<option value="in">in
+												<option value="ft">ft
+												<option value="yd">yd
+												<option value="mm">mm
+												<option value="cm">cm
+												<option value="m">m
+											</select>
+								</div>
+							</div>
+							<div class="row" id="disp" style="margin-bottom:20px;">
+									<div>
+									<input type="text" onfocus="document.getElementById('param2').focus();" size="15" name="lbl2" id="lbl2"> <input type="text" size="10" name="param2" id="param2"> <select name="units2" id="units2">
+												<option value="in">in
+												<option value="ft">ft
+												<option value="yd">yd
+												<option value="mm">mm
+												<option value="cm">cm
+												<option value="m">m
+									</select>
+									</div>
+							</div>
+							<div class="row">
+									<div>
+											<input type="text" onblur="ChangeLabel();" onfocus="document.getElementById('param3').focus(); " size="15" name="lbl3" id="lbl3"> <td class="table-row" width="247" /><input type="text" size="10" name="param3" id="param3" /> <select name="units3" id="units3">
+												<option value="in">in
+												<option value="ft">ft
+												<option value="yd">yd
+												<option value="mm">mm
+												<option value="cm">cm
+												<option value="m">m
+											</select>
+									</div>
+							 </div><br />
+
+									<div class="row">
+										<div>
+											<span style="color:#990000;">Calculated Weight (lbs):</span> <input type="text" onblur="ChangeLabel();" onfocus="document.getElementById('calcform1').Submit.focus(); " size="16" name="result" maxlength="8" id="result"><br /><br />
+											<input type="submit" value="Calculate" name="Submit" onclick="CalculateWeight(); return false;">&nbsp;&nbsp;<input type="reset" onclick="ChangeLabel();ClearFields();return false;" value="Reset" name="reset"><br />
+                    </div>
+                  </div>
+          </div>
+				</div>
+			</div>
+    </div>
+  </body>
+  </html>
